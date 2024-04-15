@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 
 
@@ -57,3 +58,14 @@ class CrispFetcher(View):
 		context = base_context(request)
 		context['page_name'] = 'fetcher'
 		return render(request, "fetcher.html", context)
+	
+
+class AjaxGetXMLs(View):
+	def post(self, request):
+
+		form = request.POST
+
+		result = {}
+		return HttpResponse(json.dumps(result),
+			content_type="application/json"
+		)
