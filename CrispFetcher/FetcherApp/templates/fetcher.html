@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<link crossorigin="anonymous" href="{% static 'css/fetcher.css' %}" rel="stylesheet" type="text/css" />
+
+<nav class="navbar fixed-top navbar-expand-lg">
+	<img class="logo" src="{% static 'icons/logo.svg'%}" />
+	<h1>Crisp</h1>
+	<h1 class="outline">Merge</h1>
+	<img class="logo fnButton" src="{% static 'icons/copy.svg' %}" onclick="copy_result()" />
+</nav>
+<br />
+<br />
+<div class="mainWindow">
+	<div class="rowLineControl">
+		<div class="lineSystemCol lineNumberBox">
+			<div class="code-field-header">
+				<label for="line_number">Line</label>
+			</div>
+
+			<div id="oldXMLLineNumberCol" class="container-fluid xml-code-field lineNumberCol"></div>
+		</div>
+
+		<div class="flexCol">
+			<div class="code-field-header old-XML-header">
+				<label for="form7">Old</label>
+			</div>
+
+			<div class="rowLineControl">
+				<div id="oldXML" class="container-fluid xml-code-field maxFill"></div>
+				<div id="move_group_from_old" class="container-fluid xml-code-field moveButtonsCol moveGoupBtnsCol"></div>
+				<div id="move_from_old" class="container-fluid xml-code-field moveButtonsCol"></div>
+			</div>
+		</div>
+
+		<div class="lineSystemCol lineNumberBox">
+			<div class="code-field-header">
+				<label for="line_number">Line</label>
+			</div>
+
+			<div id="newXMLLineNumberCol" class="container-fluid xml-code-field lineNumberCol"></div>
+		</div>
+
+		<div class="flexCol">
+			<div class="code-field-header new-XML-header">
+				<label for="form7">New</label>
+			</div>
+
+			<div class="rowLineControl">
+				<div id="newXML" class="container-fluid xml-code-field maxFill"></div>
+				<div id="move_group_from_new" class="container-fluid xml-code-field moveButtonsCol moveGoupBtnsCol"></div>
+				<div id="move_from_new" class="container-fluid xml-code-field moveButtonsCol"></div>
+			</div>
+		</div>
+
+		<div class="flexCol">
+			<div class="code-field-header result-XML-header">
+				<label for="form7">Result</label>
+			</div>
+			<div class="rowLineControl">
+				<div id="resXML" class="container-fluid xml-code-field maxFill"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<button class="btn" onclick="move_to_top()">↑ Up ↑</button>
+
+<script src="./bootstrap/js/bootstrap.js"></script>
+<script src="./js/editor.js"></script>
+
+{% endblock %}

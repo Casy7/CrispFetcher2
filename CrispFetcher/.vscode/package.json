@@ -1,0 +1,25 @@
+{
+	"prettier": {
+		"semi": false,
+		"tabWidth": 4,
+		"useTabs": true,
+		"overrides": [
+			{
+				"files": "*.html",
+				"options": {
+					"printWidth": 999,
+					"bracketSameLine": true,
+					"trailingComma": "es5"
+				}
+			},
+			{
+				"files": "*.py",
+				"options": {
+					"printWidth": 999,
+					"bracketSameLine": true,
+					"trailingComma": "es5"
+				}
+			}
+		]
+	}
+}

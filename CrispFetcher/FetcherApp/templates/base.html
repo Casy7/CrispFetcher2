@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- BOOTSTRAP STYLES -->
+		<link crossorigin="anonymous" href="{% static 'modules/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+		<script crossorigin="anonymous" src="{% static 'modules/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+		<!-- TITLE -->
+		{% if title != 'none' %}
+		<title>CF: {{ title }}</title>
+		{% else %}
+		<title>CrispFetcher</title>
+		{% endif %}
+
+		<!-- META TAGS -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+
+		<!-- STYLES -->
+		<link rel="stylesheet" href="{% static 'css/base.css'%}" />
+		<link rel="icon" type="image/x-icon" href="{% static 'icons/logo.svg' %}" />
+
+		<!-- SCRIPTS (only if needed at start) -->
+		<script src="{% static 'modules/jquery/jquery.js' %}" type="text/javascript"></script>
+		<script crossorigin="anonymous" src="{% static 'js/base.js' %}"></script>
+	</head>
+
+	<body>
+		<!-- __________________________________________ NAVBAR __________________________________________ -->
+
+
+
+		<!-- __________________________________________ CONTENT __________________________________________ -->
+
+		<div class="content">{%block content%} {%endblock%}</div>
+
+
+		<footer class="text-center text-white">
+			<div class="text-center p-3">
+				Got any questions?
+				<a class="text-white" href="https://t.me/casy7/">Me too.</a>
+			</div>
+		</footer>
+	</body>
+
+	<!-- __________________________________________ SCRIPTS __________________________________________ -->
+
+	<script src="{% static 'js/base.js' %}" type="text/javascript"></script>
+</html>

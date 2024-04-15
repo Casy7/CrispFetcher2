@@ -1,0 +1,294 @@
+.body-container {
+    font-size: 13px;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+.xml-code-field {
+    min-height: 50rem !important;
+    overflow: scroll;
+    display: flexbox;
+}
+
+.xml-block {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    resize: none;
+    overflow: hidden;
+}
+
+.logo {
+    width: 30px;
+}
+
+.navbar {
+    height: 45px;
+    display: inline-flex;
+    background-color: #d5d5d5;
+    margin-bottom: 5px;
+    justify-content: center;
+    padding: 0;
+}
+
+div.xml-code-field {
+    scrollbar-width: thin;
+    font-size: 15px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    outline: none;
+}
+
+textarea.xml-block.from-old-xml {
+    border: 1px solid aqua;
+    background-color: #dbffff;
+}
+
+textarea.xml-block.from-new-xml {
+    border: 1px solid darkkhaki;
+    background-color: #fffcdb;
+}
+
+
+div::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+div::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background-color: #686868;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.code-field-header {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.code-field-header label {
+    padding-left: 5px;
+}
+
+.code-field-header.old-XML-header {
+    background-color: #bae4be;
+}
+
+.code-field-header.new-XML-header {
+    background-color: #d0ceaa;
+}
+
+.code-field-header.result-XML-header {
+    background-color: #d0d0d0;
+}
+
+pre {
+    margin-bottom: 0px;
+    overflow: hidden;
+    line-height: 15px;
+    min-height: 15px;
+    cursor: context-menu;
+}
+
+pre.lineNumber {
+    text-align: end;
+}
+
+.lineSystemCol {
+    width: 65px;
+    flex: none;
+    overflow: hidden;
+    background-color: #d3d3d3;
+}
+
+.lineNumberCol {
+    flex: 25%;
+    max-width: 66px;
+}
+
+.lineApplyChangesCol {
+    width: 45px;
+    padding-right: 0px;
+    padding-left: 0px;
+    flex: none;
+    overflow: hidden;
+    background-color: #d3d3d3;
+
+}
+
+h1 {
+    background-color: #d5d5d5;
+}
+
+.rowLineControl {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+.moveButtonsCol {
+    width: 30px;
+    padding: 0;
+}
+
+.maxFill {
+    width: 100%;
+    flex: 4;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.mainWindow {
+    width: 100%;
+    flex-shrink: 1;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.flexCol {
+    flex: 25%;
+    max-width: 33%;
+}
+
+.lineMoveBtn {
+    height: 15px;
+    line-height: 15px;
+    width: 10%;
+    /* border: 1px solid rgb(26, 255, 5);
+    border-bottom: none; */
+    text-align: center;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.groupMoveBtn {
+    width: 17px;
+    border-left: none;
+    border-right: none;
+
+    text-align: center;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+#move_group_from_old .groupMoveBtn {
+    border-top: 1px solid rgba(5, 68, 0, 0.4);
+    border-bottom: 1px solid rgba(5, 68, 0, 0.4);
+    background-color: #bae4be;
+}
+
+#move_group_from_new .groupMoveBtn {
+    border-top: 1px solid rgba(77, 53, 0, 0.4);
+    border-bottom: 1px solid rgba(77, 53, 0, 0.4);
+    background-color: #dfe4ba;
+}
+
+.moveGoupBtnsCol {
+    overflow: auto;
+    width: 20px;
+}
+
+#move_group_from_old {
+    border-left: 1px solid #bae4be;
+}
+
+#move_group_from_new {
+    border-left: 1px solid #dfe4ba;
+}
+
+.smallText {
+    font-size: 8.5px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+.outline {
+    color: #f0f0f0;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+h1.outline {
+    font-size: 34px;
+}
+
+.center {
+    text-align: center;
+}
+
+.grayLine {
+    /* background-color: #c4c4c4; */
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background: repeating-linear-gradient(-45deg, #c7c7c7, #f5f5f5 5px, #e5e5f7 5px, #e5e5f7 5px);
+}
+
+.redLine {
+    /* background-color: #c4c4c4; */
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background: repeating-linear-gradient(-45deg, #ffb1b1, #ececec 5px, #ffb6b6 5px, #e5e5f7 5px);
+}
+
+.fromOldXMLLine {
+    background-color: #d2f5d6;
+}
+
+.fromNewXMLLine {
+    background-color: #dfe4ba;
+}
+
+.equalInBothXMLsLine {
+    background-color: #abe4ff;
+}
+
+.lineBox pre {
+    display: table-cell;
+}
+
+.line {
+    min-height: 15px;
+    height: 15px;
+}
+
+.lineNumberBox {
+    max-width: 45px;
+}
+
+.lineNumberCol {
+    padding-right: 3px;
+    padding-left: 0px;
+    width: 40px;
+    overflow: hidden;
+}
+
+.fnButton {
+    float: right;
+    width: 25px;
+    margin-left: 64%;
+}
