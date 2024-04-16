@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.views.generic import View
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -14,6 +14,7 @@ from django.contrib.auth.models import AnonymousUser
 
 from CrispFetcher.settings import MEDIA_ROOT
 from .models import *
+from .code.fetcher import *
 
 def is_user_authenticated(request):
 	user = request.user
@@ -65,7 +66,26 @@ class AjaxGetXMLs(View):
 
 		form = request.POST
 
-		result = {}
-		return HttpResponse(json.dumps(result),
-			content_type="application/json"
-		)
+		files = request.FILES
+
+		oldXML = ""
+		if 'oldXML' in files:
+			oldXML = files['oldXML'].read().decode("utf-8")
+		
+		newXML = ""
+		if 'newXML' in files:
+			newXML = files['newXML'].read().decode("utf-8")
+
+		xml_composer = XMLToStructureComposer("", "")
+
+		xml_composer.old_XML = oldXML
+		xml_composer.new_XML = newXML
+		xml_composer.generate()
+
+		response = {
+			"result" : "success",
+			"oldXML" : [obj.__dict__ for obj in xml_composer.new_old_XML_groups],
+			"newXML" : [obj.__dict__ for obj in xml_composer.new_new_XML_groups],
+			"resXML" : [obj.__dict__ for obj in xml_composer.res_XML_groups]
+		}
+		return JsonResponse(response, safe=False)

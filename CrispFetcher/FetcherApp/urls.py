@@ -7,6 +7,7 @@ from django.conf.urls import handler404
 
 urlpatterns = [
     path("", CrispFetcher.as_view(), name="home"),
+    path("upload_xmls/", AjaxGetXMLs.as_view(), name="item"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

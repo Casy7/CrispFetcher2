@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 from .fetcher_funcs import *
 import copy
+import re
 
 
 class XMLObject:
@@ -183,9 +184,9 @@ class XMLToStructureComposer():
 		xml_list = xml_content.split('\n')
 		return xml_list
 
-	@property
-	def old_struct(self):
-		return self.generate_struct(self.old_xml)
+	# @property
+	# def old_struct(self):
+	# 	return self.generate_struct(self.old_xml)
 
 	def group_compose(self, xml_list):
 		groups = []
@@ -435,3 +436,7 @@ class XMLToStructureComposer():
 
 		for new_obj_index in range(len(xml_2)):
 			curr_item = xml_2[new_obj_index]
+
+		self.new_old_XML_groups = new_xml_1
+		self.new_new_XML_groups = new_xml_2
+		self.res_XML_groups = res_xml

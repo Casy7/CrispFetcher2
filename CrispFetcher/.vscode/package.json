@@ -5,7 +5,7 @@
 		"useTabs": true,
 		"overrides": [
 			{
-				"files": "*.html",
+				"files": ["*.html", "*.js"],
 				"options": {
 					"printWidth": 999,
 					"bracketSameLine": true,

@@ -1,16 +1,15 @@
 var totalLinesAmount = 0;
 var totalSpacesBeforeItem = 0;
 
-function update_xmls() {
-  eel.send_old_xml()(function (oldXMLStructure) {
+function update_xmls(oldXMLStructure, newXMLStructure, resXMLStructure) {
+
 
     add_lines_to(oldXMLStructure, document.getElementById('oldXML'));
     add_group_move_btns_from_old(oldXMLStructure);
 
     add_line_numbers('oldXMLLineNumberCol', oldXMLStructure)
-  });
 
-  eel.send_new_xml()(function (newXMLStructure) {
+
 
     add_lines_to(newXMLStructure, document.getElementById('newXML'));
 
@@ -20,13 +19,9 @@ function update_xmls() {
     add_group_move_btns_from_new(newXMLStructure);
 
     add_line_numbers('newXMLLineNumberCol', newXMLStructure);
-  });
-
-  eel.send_res_xml()(function (oldXMLStructure) {
 
     add_lines_to(oldXMLStructure, document.getElementById('resXML'));
 
-  });
 }
 
 function add_lines_to(lines, el) {

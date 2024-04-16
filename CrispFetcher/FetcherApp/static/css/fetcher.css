@@ -292,3 +292,10 @@ h1.outline {
     width: 25px;
     margin-left: 64%;
 }
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
