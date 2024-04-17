@@ -4,8 +4,10 @@
 <html>
 	<head>
 		<!-- BOOTSTRAP STYLES -->
-		<link crossorigin="anonymous" href="{% static 'modules/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-		<script crossorigin="anonymous" src="{% static 'modules/bootstrap/dist/js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+		{% load django_bootstrap5 %}
+
+		{% bootstrap_css %}
+		{% bootstrap_javascript %}
 
 		<!-- TITLE -->
 		{% if title != 'none' %}
@@ -21,7 +23,7 @@
 		<meta name="robots" content="noindex, nofollow" />
 
 		<!-- STYLES -->
-		<link rel="stylesheet" href="{% static 'css/base.css'%}" />
+		<link rel="stylesheet" href="{% static 'css/base.css'%}"  type="text/css"/>
 		<link rel="icon" type="image/x-icon" href="{% static 'icons/logo.svg' %}" />
 
 		<!-- SCRIPTS (only if needed at start) -->

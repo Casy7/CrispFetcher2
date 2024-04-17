@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'FetcherApp',
+    'django_bootstrap5'
 ]
 
 MIDDLEWARE = [
