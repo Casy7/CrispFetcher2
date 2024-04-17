@@ -242,7 +242,7 @@ function copy_result() {
     }
 
   });
-  res_str = res_str.replace(/ *\n/g, '\n').replace(/ *\n *\n *\n/g, '\n\n').replace(/ *\n *\n *\n/g, '\n\n');
+  res_str = res_str.replace(/\r\n/g, '\n').replace(/\n\n\n\n+/g, '\n\n').replace(/(<\/item>\n\n<)/g, '</item>\n\n\n<');
   fallbackCopyTextToClipboard(res_str);
   i = 0;
   // console.log(i);
