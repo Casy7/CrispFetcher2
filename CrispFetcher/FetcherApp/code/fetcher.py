@@ -420,17 +420,18 @@ class XMLToStructureComposer():
 
 				else:
 
-					if curr_item.type == "passive":
+					# if curr_item.type == "passive":
+					new_xml_1.append(curr_item)
+					new_xml_1_lines += curr_item.length()
 
-						new_xml_1.append(curr_item)
-						new_xml_1_lines += curr_item.length()
+					for i in range(curr_item.length()):
+						new_xml_2.append(XMLGrayLine())
+						new_xml_2_lines += 1
+					
+						res_xml.append(XMLRedLine())
+						res_xml_lines += 1
 
-						for i in range(curr_item.length()):
-							new_xml_2.append(XMLGrayLine())
-							new_xml_2_lines += 1
-						
-							res_xml.append(XMLRedLine())
-							res_xml_lines += 1
+
 
 
 
