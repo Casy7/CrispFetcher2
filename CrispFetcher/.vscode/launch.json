@@ -1,3 +1,11 @@
 {
-	"configurations": [{ "name": "Python Debugger: Django", "type": "debugpy", "request": "launch", "args": ["runserver"], "django": true, "autoStartBrowser": false, "program": "${workspaceFolder}\\manage.py" }]
+	"configurations": [
+		{
+			"type": "firefox",
+			"request": "attach",
+			"name": "Firefox: Attach",
+			"url": "http://127.0.0.1:8000/",
+            "webRoot": "${workspaceFolder}"
+		},
+		{ "name": "Python Debugger: Django", "type": "debugpy", "request": "launch", "args": ["runserver"], "django": true, "autoStartBrowser": false, "program": "${workspaceFolder}\\manage.py" }]
 }

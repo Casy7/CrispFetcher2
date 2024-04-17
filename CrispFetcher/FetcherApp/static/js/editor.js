@@ -20,7 +20,7 @@ function update_xmls(oldXMLStructure, newXMLStructure, resXMLStructure) {
 
     add_line_numbers('newXMLLineNumberCol', newXMLStructure);
 
-    add_lines_to(oldXMLStructure, document.getElementById('resXML'));
+    add_lines_to(resXMLStructure, document.getElementById('resXML'));
 
 }
 
@@ -153,6 +153,11 @@ function compile_template(line_id, line_content, append_to) {
     if (curr_line_content == "%REDLINE%") {
       additionalClasses += " redLine";
       curr_line_content = ""
+    }
+
+    if (curr_line_content.search('%REDLINE%') > -1) {
+      additionalClasses += " redLine";
+      curr_line_content = curr_line_content.replace('%REDLINE%', "");
     }
 
     if (curr_line_content.search('%LINE_FROM_OLD_XML%') > -1) {
