@@ -220,11 +220,11 @@ body {
 }
 
 #move_group_from_old {
-	border-left: 1px solid #bae4be;
+	border-left: 1px solid #dee4ba;
 }
 
 #move_group_from_new {
-	border-left: 1px solid #dfe4ba;
+	border-left: 1px solid #bae4c7;
 }
 
 .smallText {

@@ -148,6 +148,9 @@ send.addEventListener("click", async () => {
 	const userInfo = document.querySelector("#XMLs")
 	const formData = new FormData(userInfo)
 
+	const oldXMLFilename = document.querySelector("#old_XML").value.split(/(\\|\/)/g).pop()
+	const newXMLFilename = document.querySelector("#new_XML").value.split(/(\\|\/)/g).pop()
+
 	const response = await fetch("/upload_xmls/", {
 		method: "POST",
 		body: formData,
@@ -161,6 +164,9 @@ send.addEventListener("click", async () => {
 			// console.log(data)
 			update_xmls(data.oldXML, data.newXML, data.resXML);
 			$("#XMLSelectorModal").hide();
+
+			$(".oldXMLFileName").text("Old - " + oldXMLFilename);
+			$(".newXMLFileName").text("New - " + newXMLFilename);
 			
 		})
 })
