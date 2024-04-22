@@ -395,3 +395,29 @@ function move_group_lines_from_new(start_line, end_line) {
 function move_to_top(){
   $("html, body").animate({ scrollTop: 0 }, "slow");
 }
+
+
+
+$(document).ready(function () {
+  $("#XMLFileNames").fadeTo(1, 0.1);
+	function isScrolledFromTop() {
+		return $(window).scrollTop() > 200;
+	}
+
+	// Функция для выполнения AJAX запроса при достижении конца страницы
+	function showFileNames() {
+		// Проверяем, долистал ли пользователь страницу до конца
+		if (isScrolledFromTop()) {
+      $("#XMLFileNames").fadeTo(1, 1);
+		}
+    else {
+      $("#XMLFileNames").fadeTo(1, 0.01);
+    }
+	}
+
+	// Обработчик события прокрутки страницы
+	$(window).scroll(function () {
+		// Выполняем AJAX запрос при достижении конца страницы
+		showFileNames();
+	});
+});

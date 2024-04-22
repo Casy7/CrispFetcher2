@@ -83,11 +83,11 @@ div::-webkit-scrollbar-thumb {
 }
 
 .code-field-header.old-XML-header {
-    background-color: #bae4be;
+    background-color: #e4deba;
 }
 
 .code-field-header.new-XML-header {
-    background-color: #d0ceaa;
+    background-color: #aad0c3;
 }
 
 .code-field-header.result-XML-header {
@@ -256,11 +256,11 @@ h1.outline {
 }
 
 .fromOldXMLLine {
-    background-color: #d2f5d6;
+    background-color: #eff5d2;
 }
 
 .fromNewXMLLine {
-    background-color: #dfe4ba;
+    background-color: #a3ffcb;
 }
 
 .equalInBothXMLsLine {
