@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block navbar_styles %}
+<link rel="stylesheet" href="{% static 'css/navbar.css'%}" type="text/css" />
+{% endblock %}
+
+
+{% block navbar %}
+<link rel="stylesheet" href="{% static 'css/base.css'%}" type="text/css" />
+
+<nav class="navbar fixed-top navbar-expand-lg main-navbar">
+	<div class="nav-row">
+		<img class="logo nav-big-icon" src="{% static 'icons/logo.svg'%}" />
+		<h1 class="text-blue">Crisp</h1>
+		<h1 class="text-gray">Merge</h1>
+	</div>
+	<div class="nav-row icons-row">
+		<a href="/"><img class="logo nav-medium-icon" src="{% static 'icons/merge.svg' %}"/></a>
+		<a href="/folder"><img class="logo nav-medium-icon" src="{% static 'icons/folder.svg' %}"/></a>
+		<a href="/signin"><img class="logo nav-medium-icon" src="{% static 'icons/user.svg' %}"/></a>
+	</div>
+</nav>
+{% endblock %}
+
+
+{% block footer %}
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+	<div class="text-center p-3">
+		Got any questions?
+		<a href="https://t.me/casy7/">I'll try to answer.</a>
+	</div>
+</footer>
+{% endblock %}

@@ -1,0 +1,42 @@
+.main-navbar {
+	width: 100vw;
+	max-height: 5vh;
+	overflow: hidden;
+	background-color: #e1e1e1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content-container {
+	background-color: aqua;
+	width: 100vw;
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+}
+
+.nav-big-icon {
+    max-width: 4vh;
+}
+
+.nav-medium-icon {
+    max-width: 3vh;
+}
+
+.icons-row a {
+    margin-right: 10px;
+}
+
+.nav-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.text-blue {
+    color: #1d2f4f;
+}
+
+.text-gray {
+    color: #a4abb8;
+}

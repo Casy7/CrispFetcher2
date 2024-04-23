@@ -4,10 +4,7 @@
 <html>
 	<head>
 		<!-- BOOTSTRAP STYLES -->
-		{% load django_bootstrap5 %}
-
-		{% bootstrap_css %}
-		{% bootstrap_javascript %}
+		{% load django_bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
 
 		<!-- TITLE -->
 		{% if title != 'none' %}
@@ -23,33 +20,31 @@
 		<meta name="robots" content="noindex, nofollow" />
 
 		<!-- STYLES -->
-		<link rel="stylesheet" href="{% static 'css/base.css'%}"  type="text/css"/>
+		<link rel="stylesheet" href="{% static 'css/base.css'%}" type="text/css" />
 		<link rel="icon" type="image/x-icon" href="{% static 'icons/logo.svg' %}" />
+		{% block navbar_styles %} {% endblock %}
+		{% block styles %} {% endblock %}
 
-		<!-- SCRIPTS (only if needed at start) -->
+		<!-- SCRIPTS (only if needed at the start) -->
 		<script src="{% static 'modules/jquery/jquery.js' %}" type="text/javascript"></script>
 		<script crossorigin="anonymous" src="{% static 'js/base.js' %}"></script>
+		
 	</head>
 
 	<body>
 		<!-- __________________________________________ NAVBAR __________________________________________ -->
-
-
+		<div class="navbar-container">{% block navbar %} {% endblock %}</div>
 
 		<!-- __________________________________________ CONTENT __________________________________________ -->
+		<div class="content-container">{% block content %} {% endblock %}</div>
 
-		<div class="content">{%block content%} {%endblock%}</div>
+		<!-- __________________________________________ FOOTER __________________________________________ -->		
+		<div class="footer-container">{% block footer %} {% endblock %}</div>
 
-
-		<footer class="text-center text-white">
-			<div class="text-center p-3">
-				Got any questions?
-				<a class="text-white" href="https://t.me/casy7/">Me too.</a>
-			</div>
-		</footer>
 	</body>
 
 	<!-- __________________________________________ SCRIPTS __________________________________________ -->
-
 	<script src="{% static 'js/base.js' %}" type="text/javascript"></script>
+	{% block scripts %} {% endblock %}
+
 </html>

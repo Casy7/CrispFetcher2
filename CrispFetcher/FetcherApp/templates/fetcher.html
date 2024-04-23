@@ -1,8 +1,15 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
+{% extends 'base.html' %} 
+{% load static %}
+
+
+{% block styles %}
 <link crossorigin="anonymous" href="{% static 'css/fetcher.css' %}" rel="stylesheet" type="text/css" />
 <link crossorigin="anonymous" href="{% static 'css/upload.css' %}" rel="stylesheet" type="text/css" />
 <link crossorigin="anonymous" href="{% static 'css/editor.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
 
+
+{% block navbar %}
 <nav class="navbar fixed-top navbar-expand-lg multi-line-nav">
 	<div class="row nav-row inline-row">
 		<img class="logo" src="{% static 'icons/logo.svg'%}" />
@@ -28,9 +35,12 @@
 		</div>
 	</div>
 </nav>
-<br />
-<br />
+{% endblock %}
 
+
+{% block content %} 
+<br />
+<br />
 <div id="XMLSelectorModal" class="modal fade show" tabindex="-1" role="dialog" style="display: block; padding-right: 17px">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">

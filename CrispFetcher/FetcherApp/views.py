@@ -89,3 +89,91 @@ class AjaxGetXMLs(View):
 			"resXML" : [obj.__dict__ for obj in xml_composer.res_XML_groups]
 		}
 		return JsonResponse(response, safe=False)
+	
+
+
+class Login(View):
+
+	def __init__(self):
+		self.error = 0
+
+	def get(self, request):
+
+		context = base_context(
+			request, title='Вхід', header='Вхід', error=0)
+		context['error'] = 0
+
+		# context['form'] = self.form_class()
+		return render(request, "signin.html", context)
+
+	def post(self, request):
+		context = {}
+		form = request.POST
+
+		username = form['username']
+		password = form['password']
+
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			if user.is_active:
+				login(request, user)
+				context['name'] = username
+				return HttpResponseRedirect("/")
+
+		else:
+			context = base_context(request, title='Вхід', header='Вхід')
+			logout(request)
+			context['error'] = 1
+			# return Posts.get(self,request)
+			return render(request, "signin.html", context)
+
+
+class Logout(View):
+	def get(self, request):
+		logout(request)
+		return HttpResponseRedirect("/")
+
+
+class SignUp(View):
+	def get(self, request):
+
+		context = base_context(
+			request, title='Реєстрація', header='Реєстрація', error=0)
+
+		return render(request, "signup.html", context)
+
+	def post(self, request):
+		context = {}
+		form = request.POST
+		user_props = {}
+		username = form['username']
+		password = form['password']
+
+		# new_post.author = Author.objects.get(id = request.POST.author)
+		# new_post.save()
+		user_with_this_username_already_exists = bool(User.objects.filter(username=username))
+		if not user_with_this_username_already_exists:
+			for prop in form:
+				if prop not in ('csrfmiddlewaretoken', 'username', 'phone_number') and form[prop] != '':
+					user_props[prop] = form[prop]
+
+			user = User.objects.create_user(
+				username=form['username'],
+				first_name=form['first_name'],
+				password=form['password'])
+			
+
+
+			user = authenticate(username=username, password=password)
+			login(request, user)
+			return HttpResponseRedirect("/")
+
+		else:
+			context = base_context(
+				request, title='Реєстрація', header='Реєстрація')
+
+			for field_name in form.keys():
+				context[field_name] = form[field_name]
+
+			context['error'] = 1
+			return render(request, "signup.html", context)

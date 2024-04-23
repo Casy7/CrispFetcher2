@@ -1,0 +1,13 @@
+.content-container {
+	background-color: aqua;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	width: auto;
+	vertical-align: middle;
+}
+
+.signup-card {
+	min-width: 26vw;
+	min-height: 30vh;
+}
