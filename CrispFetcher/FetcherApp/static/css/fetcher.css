@@ -319,8 +319,7 @@ h1.outline {
     font-size: 2vh;
 }
 
-.popover.show {
-	
+.popover.show {	
 	-webkit-animation: fadeIn 0.5s;
 	animation: fadeIn 0.5s forwards;
 }
@@ -381,4 +380,9 @@ h1.outline {
     height: 3vh;
     right: 2vw;
     position: relative;
+	opacity: 0;
     }
+
+.logo.nav-medium-icon.checked-icon.checked {
+	opacity: 1;
+}

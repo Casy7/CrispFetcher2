@@ -17,29 +17,24 @@
             <th scope="col">Old path</th>
             <th scope="col">New path</th>
             <th scope="col">Result</th>
+            <th scope="col">Open</th>
           </tr>
         </thead>
         <tbody>
+
+          {% for opened_editor in openedEditors %}
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row">{{ opened_editor.id }}</th>
+            <td>{{ opened_editor.old_XML_path }}</td>
+            <td>{{ opened_editor.new_XML_path }}</td>
+            <td>{{ opened_editor.datetime_created }}</td>
+            <td><a href="/editor/{{ opened_editor.id }}">Open</a></td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
 </div>
+
+
 
 {% endblock %}

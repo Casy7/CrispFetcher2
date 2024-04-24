@@ -13,6 +13,7 @@ urlpatterns = [
     path("signup/", SignUp.as_view(), name="registration"),
     path("recent/", RecentMerges.as_view(), name="recent"),
     path("save_xmls/", AjaxSaveXMLs.as_view(), name="save_xmls"),
+    path("editor/<int:editor_id>/", XMLsEditor.as_view(), name="editor"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

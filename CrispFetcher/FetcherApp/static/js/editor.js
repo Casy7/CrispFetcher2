@@ -1,6 +1,8 @@
 var totalLinesAmount = 0;
 var totalSpacesBeforeItem = 0;
 
+let userOpenedEditorID = -1;
+
 function update_xmls(oldXMLStructure, newXMLStructure, resXMLStructure) {
 
 
@@ -69,7 +71,6 @@ function add_move_btns_to_new_xml_col() {
   }
 }
 
-
 function add_group_move_btns_to(lines, el) {
 
   curr_group_index = 0;
@@ -96,7 +97,6 @@ function add_group_move_btns_to(lines, el) {
     }
   }
 }
-
 
 function compile_template(line_id, line_content, append_to) {
 
@@ -184,15 +184,12 @@ function compile_template(line_id, line_content, append_to) {
     
     $("#" + line_id + "_"+i).text(curr_line_content);
   }
-
 }
-
 
 function auto_grow(element) {
   element.style.height = "5px";
   element.style.height = (element.scrollHeight) + "px";
 }
-
 
 function add_line_numbers(numbers_container, xml_structure) {
   let line_index = 0;
@@ -445,24 +442,61 @@ function myFunction() {
 
 async function saveXMLs() {
   show_saved_popover(1000);
+  
 
-  var oldXML = document.getElementById('oldXML');
-  var newXML = document.getElementById('newXML');
-  var resXML = document.getElementById('resXML');
+  let mainEditor = document.getElementById('mainEditor');
 
+  // const formData = new FormData();
 
-  const formData = new FormData();
+  // formData.append("userOpenedEditorID", userOpenedEditorID);
+  // formData.append("mainEditorState", mainEditor.innerHTML);
 
-  const response = await fetch("/save_xmls/", {
-		method: "POST",
-		body: formData,
-		credentials: "same-origin",
-		headers: {
-			"X-CSRFToken": getCookie("csrftoken"),
-		},
-	})
-		.then((response) => response.json())
-		.then((data) => {
-			console.log(data);			
-		})
+  const oldXMLFilename = document.querySelector("#old_XML").value;
+	const newXMLFilename = document.querySelector("#new_XML").value;
+
+  // formData.append("oldXMLFilename", oldXMLFilename);
+  // formData.append("newXMLFilename", newXMLFilename);
+
+  $.ajax({
+    url: "/save_xmls/",
+    type: 'POST',
+    data: {
+      'userOpenedEditorID': userOpenedEditorID,
+      "mainEditorState": mainEditor.innerHTML,
+      "oldXMLFilename": oldXMLFilename,
+      "newXMLFilename": newXMLFilename
+    },
+    beforeSend: function (xhr) {
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
+      csrftoken_val = collectCookies(xhr);
+      csrftoken_val = getCookie('csrftoken');
+      if (csrftoken_val == "") {
+        csrftoken_val = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+      }
+      xhr.setRequestHeader('X-CSRF-Token', csrftoken_val);
+    },
+    success: function a(json) {
+      if (json.result === "success") {
+        userOpenedEditorID = json.userOpenedEditorID;
+        $(".checked-icon").addClass("checked");
+      } else {
+
+      }
+    }
+  });
+
 }

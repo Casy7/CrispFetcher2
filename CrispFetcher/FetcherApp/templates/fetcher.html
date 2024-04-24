@@ -87,7 +87,16 @@
 </div>
 
 <div class="mainWindow">
-	<div class="rowLineControl">
+
+	{% if restore_editor %}
+
+		<div class="rowLineControl" id="mainEditor">
+			{{ userOpenedEditor | safe }}
+
+	{% else %}
+
+
+	<div class="rowLineControl" id="mainEditor">
 		<div class="lineSystemCol lineNumberBox">
 			<div class="code-field-header">
 				<label for="line_number">Line</label>
@@ -137,7 +146,11 @@
 			</div>
 		</div>
 	</div>
+
+	{% endif %}
 </div>
+
+
 
 <button class="btn" onclick="move_to_top()">↑ Up ↑</button>
 
