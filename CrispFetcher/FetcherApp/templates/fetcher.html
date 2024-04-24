@@ -1,32 +1,23 @@
-{% extends 'base_with_navbar.html' %} 
-{% load static %}
-
-
-{% block styles %}
+{% extends 'base_with_navbar.html' %} {% load static %} {% block styles %}
 <link crossorigin="anonymous" href="{% static 'css/fetcher.css' %}" rel="stylesheet" type="text/css" />
 <link crossorigin="anonymous" href="{% static 'css/upload.css' %}" rel="stylesheet" type="text/css" />
 <link crossorigin="anonymous" href="{% static 'css/editor.css' %}" rel="stylesheet" type="text/css" />
-{% endblock %}
+{% endblock %} {% block navbar_in_page_functions %}
+<div class="nav-row icons-row">
+	{% if user.is_authenticated %}
+	<img class="logo nav-medium-icon" src="{% static 'icons/save.svg' %}" onclick="saveXMLs()" />
+	<img class="logo nav-medium-icon checked-icon" src="{% static 'icons/checked.svg' %}" onclick="saveXMLs()" />
+	{% endif %}
+	<img class="logo nav-medium-icon" src="{% static 'icons/copy.svg' %}" onclick="copy_result()">
+</div>
 
-{% block navbar_in_page_functions %}
-	<div class="nav-row icons-row">
-
-		<img class="logo nav-medium-icon" src="{% static 'icons/copy.svg' %}" onclick="copy_result()" />
-	</div>
-
-{% endblock %}
-
-
-
-
-
-
-{% block content %} 
+{% endblock %} {% block content %}
 <br />
 <br />
+<div class="popover aquamarine hidden" id="popoverCopied" tabindex="0" role="tooltip">Copied!</div>
+<div class="popover yellow hidden" id="popoverSaved" tabindex="0" role="tooltip">Saved successfully!</div>
 
 <div class="top-fixed-filenames">
-
 	<div class="row nav-row" id="XMLFileNames">
 		<div class="flexCol">
 			<div class="code-field-header old-XML-header">

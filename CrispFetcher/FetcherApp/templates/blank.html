@@ -1,12 +1,10 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base_with_navbar.html' %}
 {% load static %}
 
-<div>
-    <form method="POST" enctype="multipart/form-data">
-        {%csrf_token%}
-    </form>
-</div>
+{% block content %}
 
+<div>
+    <h1>Blank</h1>
+</div>
 
 {% endblock %}

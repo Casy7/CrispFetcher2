@@ -89,6 +89,26 @@ class AjaxGetXMLs(View):
 			"resXML" : [obj.__dict__ for obj in xml_composer.res_XML_groups]
 		}
 		return JsonResponse(response, safe=False)
+
+
+class AjaxSaveXMLs(View):
+	def post(self, request):
+		form = request.POST
+
+		
+
+		response = {
+			"result" : "success"
+		}
+		return JsonResponse(response, safe=False)
+
+
+class RecentMerges(View):
+
+	def get(self, request):
+		context = base_context(request)
+		context['page_name'] = 'recent'
+		return render(request, "recent.html", context)
 	
 
 
@@ -98,12 +118,9 @@ class Login(View):
 		self.error = 0
 
 	def get(self, request):
-
 		context = base_context(
-			request, title='Вхід', header='Вхід', error=0)
+			request, title='Sing in', header='Sing in', error=0)
 		context['error'] = 0
-
-		# context['form'] = self.form_class()
 		return render(request, "signin.html", context)
 
 	def post(self, request):
@@ -138,7 +155,7 @@ class SignUp(View):
 	def get(self, request):
 
 		context = base_context(
-			request, title='Реєстрація', header='Реєстрація', error=0)
+			request, title='Sing up', header='Sing up', error=0)
 
 		return render(request, "signup.html", context)
 
@@ -149,20 +166,13 @@ class SignUp(View):
 		username = form['username']
 		password = form['password']
 
-		# new_post.author = Author.objects.get(id = request.POST.author)
-		# new_post.save()
 		user_with_this_username_already_exists = bool(User.objects.filter(username=username))
 		if not user_with_this_username_already_exists:
-			for prop in form:
-				if prop not in ('csrfmiddlewaretoken', 'username', 'phone_number') and form[prop] != '':
-					user_props[prop] = form[prop]
 
 			user = User.objects.create_user(
 				username=form['username'],
 				first_name=form['first_name'],
 				password=form['password'])
-			
-
 
 			user = authenticate(username=username, password=password)
 			login(request, user)
@@ -170,7 +180,7 @@ class SignUp(View):
 
 		else:
 			context = base_context(
-				request, title='Реєстрація', header='Реєстрація')
+				request, title='Sing up', header='Sing up')
 
 			for field_name in form.keys():
 				context[field_name] = form[field_name]

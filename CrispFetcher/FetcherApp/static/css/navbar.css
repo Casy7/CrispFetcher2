@@ -16,13 +16,14 @@
 }
 
 .nav-big-icon {
-	max-width: 4vh;
-    max-height: 5vh;
+	width: 4vh;
+	height: 5vh;
 }
 
 .nav-medium-icon {
-	max-width: 3vh;
-    max-height: 4vh;
+	padding-top: 1vh;
+	width: 3vh;
+	height: 4vh;
 }
 
 .icons-row a {
@@ -45,8 +46,8 @@
 .nav-username {
 	margin-top: 0px;
 	margin-bottom: 0px;
-    padding-top: 0.7vh;
-    font-size: 1.2vw;
+	padding-top: 0.7vh;
+	font-size: 2.4vh;
 	padding-bottom: 0px;
 	margin-right: 0.5vw;
 	margin-left: 0.5vw;
@@ -55,15 +56,18 @@
 .navbar {
 	padding-top: 0px;
 	padding-bottom: 0px;
-    align-items: self-start;
-
+	align-items: self-start;
 }
 
 .navbar .logo {
-    padding-top: 1vh;
-    vertical-align: top;
+	
+	vertical-align: top;
 }
 
 nav h1 {
-	font-size: 2.3vw;
+	font-size: 4.1vh;
+}
+
+.nav-row.icons-row .logo {
+	margin-right: 1vw;
 }

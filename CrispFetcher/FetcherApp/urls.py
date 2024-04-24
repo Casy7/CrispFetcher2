@@ -11,6 +11,8 @@ urlpatterns = [
     path("signin/", Login.as_view(), name="login"),
     path("signout/", Logout.as_view(), name="logout"),
     path("signup/", SignUp.as_view(), name="registration"),
+    path("recent/", RecentMerges.as_view(), name="recent"),
+    path("save_xmls/", AjaxSaveXMLs.as_view(), name="save_xmls"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

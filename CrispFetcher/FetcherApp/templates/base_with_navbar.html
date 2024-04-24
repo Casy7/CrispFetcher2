@@ -20,7 +20,7 @@
 
 	<div class="nav-row icons-row">
 		<a href="/"><img class="logo nav-medium-icon" src="{% static 'icons/merge.svg' %}"/></a>
-		<a href="/folder"><img class="logo nav-medium-icon" src="{% static 'icons/folder.svg' %}"/></a>
+		<a href="/recent"><img class="logo nav-medium-icon" src="{% static 'icons/folder.svg' %}"/></a>
 		{% if not user.is_authenticated %}
 		<a href="/signin"><img class="logo nav-medium-icon" src="{% static 'icons/user.svg' %}"/></a>
 		{% endif %}

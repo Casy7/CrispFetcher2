@@ -229,23 +229,39 @@ function add_line_numbers(numbers_container, xml_structure) {
   }
 }
 
+async function show_copied_popover(ms) {
+  $("#popoverCopied").removeClass("hidden");
+  $("#popoverCopied").removeClass("hide");
+  $("#popoverCopied").addClass("show");
+	await new Promise(resolve => setTimeout(resolve, ms));
+  $("#popoverCopied").removeClass("show");
+  $("#popoverCopied").addClass("hide");
+  }
+
+  async function show_saved_popover(ms) {
+    $("#popoverSaved").removeClass("hidden");
+    $("#popoverSaved").removeClass("hide");
+    $("#popoverSaved").addClass("show");
+    await new Promise(resolve => setTimeout(resolve, ms));
+    $("#popoverSaved").removeClass("show");
+    $("#popoverSaved").addClass("hide");
+    }
+
+
 function copy_result() {
   let res = document.getElementById("resXML");
-  console.log(res.childNodes);
+  // console.log(res.childNodes);
   let res_str = "";
   res.childNodes.forEach((element) => {
     if (element.innerText != undefined && element.className.search("redLine") == -1 && element.className.search("grayLine") == -1){
-
-      // console.log(element.innerText);
       res_str +=getInnerText(element)+"\n";
-
     }
 
   });
   res_str = res_str.replace(/\r\n/g, '\n').replace(/\n\n\n\n+/g, '\n\n').replace(/(<\/item>\n\n<)/g, '</item>\n\n\n<');
   fallbackCopyTextToClipboard(res_str);
   i = 0;
-  // console.log(i);
+  show_copied_popover(1000);
   
 }
 
@@ -421,3 +437,32 @@ $(document).ready(function () {
 		showFileNames();
 	});
 });
+
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+
+async function saveXMLs() {
+  show_saved_popover(1000);
+
+  var oldXML = document.getElementById('oldXML');
+  var newXML = document.getElementById('newXML');
+  var resXML = document.getElementById('resXML');
+
+
+  const formData = new FormData();
+
+  const response = await fetch("/save_xmls/", {
+		method: "POST",
+		body: formData,
+		credentials: "same-origin",
+		headers: {
+			"X-CSRFToken": getCookie("csrftoken"),
+		},
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data);			
+		})
+}
