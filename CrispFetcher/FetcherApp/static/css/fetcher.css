@@ -25,14 +25,6 @@
     width: 30px;
 }
 
-.navbar {
-    height: 45px;
-    display: inline-flex;
-    background-color: #d5d5d5;
-    margin-bottom: 5px;
-    justify-content: center;
-    padding: 0;
-}
 
 div.xml-code-field {
     scrollbar-width: thin;
@@ -298,4 +290,12 @@ h1.outline {
 .box__success,
 .box__error {
   display: none;
+}
+
+.top-fixed-filenames {
+    position: fixed;
+    width: 100vw;
+    height: 5vh;
+    position: fixed;
+    top: 5vh;
 }

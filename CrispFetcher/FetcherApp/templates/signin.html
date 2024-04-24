@@ -23,21 +23,21 @@
 					<div class="input-group form-group">
 						<!--USERNAME-->
 						<div class="input-group-prepend">
-							<span class="input-group-text bg-dark"><i class="far fa-copyright"> *</i></span>
+							<span class="input-group-text"><img class="logo icon-btn-medium" src="{% static 'icons/user.svg' %}"/></span>
 						</div>
-						<input type="text" name="username" required="" class="form-control dark-control dark"
+						<input type="text" name="username" required="" class="form-control"
 							placeholder="username">
 					</div>
 			
 					<div class="input-group form-group">
 						<!--PASSWORD-->
 						<div class="input-group-prepend">
-							<span class="input-group-text bg-dark"><i class="fa fa-key" aria-hidden="true"></i> *</span>
+							<span class="input-group-text"><img class="logo icon-btn-medium" src="{% static 'icons/key.svg' %}"/></span>
 						</div>
 						<input id="password_field" type="password" required="" name="password"
-							class="form-control  dark-control dark" placeholder="Пароль">
+							class="form-control" placeholder="Пароль">
 						<div class="input-group-append">
-							<button type="button" class="form-control dark bg-dark show_pwd_button" onclick="show_password()"><i class="fa fa-eye"></i></button>
+							<button type="button" class="form-control show_pwd_button" onclick="show_password()"><img class="logo icon-btn-medium" src="{% static 'icons/eye.svg' %}"/></button>
 						</div>
 					</div>
 

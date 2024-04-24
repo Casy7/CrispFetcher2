@@ -26,30 +26,30 @@
 					<div class="input-group form-group">
 						<!--NAME-->
 						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="far fa-address-card"> *</i></span>
+							<span class="input-group-text"><img class="logo icon-btn-medium" src="{% static 'icons/user-card.svg' %}"/></span>
 						</div>
 						<input type="text" name="first_name" id = "first_name" required="" class="form-control form-control"
-							placeholder="Ім’я">
+							placeholder="Name">
 					</div>
 
 					<div class="input-group form-group">
 						<!--USERNAME-->
 						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="far fa-copyright"> *</i></span>
+							<span class="input-group-text"><img class="logo icon-btn-medium" src="{% static 'icons/user.svg' %}"/></span>
 						</div>
 						<input type="text" name="username" id = "username" required pattern="[A-Za-z0-9_]+" minlength="3" class="form-control"
-							placeholder="Нікнейм">
+							placeholder="Username">
 					</div>
 			
 					<div class="input-group form-group">
 						<!--PASSWORD-->
 						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key" aria-hidden="true"> *</i></span>
+							<span class="input-group-text"><img class="logo icon-btn-medium" src="{% static 'icons/key.svg' %}"/></span>
 						</div>
 						<input id="password_field" type="password" required="" name="password" minlength="6"
-							class="form-control" placeholder="Пароль">
+							class="form-control" placeholder="Password">
 						<div class="input-group-append">
-							<button type="button" class="form-control show_pwd_button" onclick="show_password()"><i class="fa fa-eye"></i></button>
+							<button type="button" class="form-control show_pwd_button" onclick="show_password()"><img class="logo icon-btn-medium" src="{% static 'icons/eye.svg' %}"/></button>
 						</div>
 					</div>
 
@@ -77,7 +77,7 @@
 						Вибачте, людина із цим юзернеймом вже зазареєстрована!
 					</div>
 					{% endif %}
-					<input type="submit" value="Реєстрація!" class="btn btn-outline-secondary btn-block"
+					<input type="submit" value="Sign up!" class="btn btn-outline-secondary btn-block"
 						style="width: 100%;">
 
 				</div>

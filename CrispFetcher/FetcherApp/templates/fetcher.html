@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+{% extends 'base_with_navbar.html' %} 
 {% load static %}
 
 
@@ -8,15 +8,25 @@
 <link crossorigin="anonymous" href="{% static 'css/editor.css' %}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
+{% block navbar_in_page_functions %}
+	<div class="nav-row icons-row">
 
-{% block navbar %}
-<nav class="navbar fixed-top navbar-expand-lg multi-line-nav">
-	<div class="row nav-row inline-row">
-		<img class="logo" src="{% static 'icons/logo.svg'%}" />
-		<h1>Crisp</h1>
-		<h1 class="outline">Merge</h1>
-		<img class="logo fnButton" src="{% static 'icons/copy.svg' %}" onclick="copy_result()" />
+		<img class="logo nav-medium-icon" src="{% static 'icons/copy.svg' %}" onclick="copy_result()" />
 	</div>
+
+{% endblock %}
+
+
+
+
+
+
+{% block content %} 
+<br />
+<br />
+
+<div class="top-fixed-filenames">
+
 	<div class="row nav-row" id="XMLFileNames">
 		<div class="flexCol">
 			<div class="code-field-header old-XML-header">
@@ -34,14 +44,9 @@
 			</div>
 		</div>
 	</div>
-</nav>
-{% endblock %}
+</div>
 
-
-{% block content %} 
-<br />
-<br />
-<div id="XMLSelectorModal" class="modal fade show" tabindex="-1" role="dialog" style="display: block; padding-right: 17px">
+<div id="XMLSelectorModal" class="modal show" tabindex="-1" role="dialog" style="display: block; padding-right: 17px">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">

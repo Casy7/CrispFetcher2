@@ -2,3 +2,11 @@
     flex-grow: 1;
     min-height: 20vh;
 }
+
+.icon-btn-medium {
+    max-width: 3vh;
+}
+
+.card-body .input-group.form-group {
+    padding-bottom: 20px;
+}

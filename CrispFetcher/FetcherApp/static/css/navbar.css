@@ -3,13 +3,12 @@
 	max-height: 5vh;
 	overflow: hidden;
 	background-color: #e1e1e1;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .content-container {
-	background-color: aqua;
 	width: 100vw;
 	display: flex;
 	flex-direction: row;
@@ -17,26 +16,35 @@
 }
 
 .nav-big-icon {
-    max-width: 4vh;
+	max-width: 4vh;
 }
 
 .nav-medium-icon {
-    max-width: 3vh;
+	max-width: 3vh;
 }
 
 .icons-row a {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
 .nav-row {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .text-blue {
-    color: #1d2f4f;
+	color: #1d2f4f;
 }
 
 .text-gray {
-    color: #a4abb8;
+	color: #a4abb8;
+}
+
+.nav-username {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-right: 0.5vw;
+	margin-left: 0.5vw;
 }
