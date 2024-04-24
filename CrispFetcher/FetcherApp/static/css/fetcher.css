@@ -298,4 +298,6 @@ h1.outline {
     height: 5vh;
     position: fixed;
     top: 5vh;
+    z-index: 9;
+    right: -1.5vw;
 }
