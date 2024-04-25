@@ -78,8 +78,8 @@ class XMLsEditor(View, LoginRequiredMixin):
 			context["restore_editor"] = True
 			context["userOpenedEditorID"] = editor_id
 			context["userOpenedEditor"] = editor.XMLs_editor_data
-			context["oldXMLFilename"] = editor.old_XML_path
-			context["newXMLFilename"] = editor.new_XML_path
+			context["oldXMLFilename"] = editor.old_XML_path.replace("\\", "/")
+			context["newXMLFilename"] = editor.new_XML_path.replace("\\", "/")
 
 			context["page_name"] = "editor"
 			return render(request, "fetcher.html", context)
@@ -154,7 +154,9 @@ class RecentMerges(View):
 		context = base_context(request)
 		context["page_name"] = "recent"
 
-		context["openedEditors"] = OpenedEditor.objects.all()
+		context["openedEditors"] = list(OpenedEditor.objects.all())
+
+		context["openedEditors"].reverse()
 
 		return render(request, "recent.html", context)
 

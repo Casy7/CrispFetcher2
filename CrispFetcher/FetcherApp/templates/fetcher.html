@@ -12,8 +12,8 @@
 </div>
 
 {% endblock %} {% block content %}
-<br />
-<br />
+
+
 <div class="popover aquamarine hidden" id="popoverCopied" tabindex="0" role="tooltip">Copied!</div>
 <div class="popover yellow hidden" id="popoverSaved" tabindex="0" role="tooltip">Saved successfully!</div>
 
@@ -91,7 +91,8 @@
 	{% if restore_editor %}
 
 		<div class="rowLineControl" id="mainEditor">
-			{{ userOpenedEditor | safe }}
+			{{ userOpenedEditor | safe }}		
+		</div>
 
 	{% else %}
 
@@ -153,6 +154,34 @@
 
 
 <button class="btn" onclick="move_to_top()">↑ Up ↑</button>
+
+{% if restore_editor %}
+
+<script>
+
+	let oldXMLFilename = "{{ oldXMLFilename }}";
+	let newXMLFilename = "{{ newXMLFilename }}";
+
+	$(".oldXMLFileName").text("Old - " + "{{ oldXMLFilename }}");
+	$(".newXMLFileName").text("New - " + "{{ newXMLFilename }}");
+
+	$('#XMLSelectorModal').hide();
+
+	let editorID = parseInt("{{ userOpenedEditorID }}");
+
+</script>
+
+{% else %}
+<script>
+
+	let oldXMLFilename = "";
+	let newXMLFilename = "";
+
+	let editorID = -1;
+
+</script>
+{% endif %}
+
 
 <script src="{% static 'js/editor.js' %} "></script>
 <script src="{% static 'js/upload.js' %} "></script>

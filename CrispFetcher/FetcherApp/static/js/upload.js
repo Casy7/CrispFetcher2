@@ -30,9 +30,7 @@
 
 		// automatically submit the form on file select
 		input.addEventListener("change", function (e) {
-			showFiles(e.target.files)
-
-			// triggerFormSubmit()
+			showFiles(e.target.files);
 		})
 
 		// drag&drop files if the feature is available
@@ -55,11 +53,17 @@
 					form.classList.remove("is-dragover")
 				})
 			})
-			form.addEventListener("drop", function (e) {
-				droppedFiles = e.dataTransfer.files // the files that were dropped
-				showFiles(droppedFiles)
+			form.addEventListener("drop", function (evt) {
 
-				triggerFormSubmit()
+				let fileInput = this.querySelector("input[type=file]");
+				fileInput.files = evt.dataTransfer.files;
+				
+
+				const dT = new DataTransfer();
+				dT.items.add(evt.dataTransfer.files[0]);
+				fileInput.files = dT.files;
+
+				showFiles(evt.dataTransfer.files);
 			})
 		}
 
@@ -148,8 +152,14 @@ send.addEventListener("click", async () => {
 	const userInfo = document.querySelector("#XMLs")
 	const formData = new FormData(userInfo)
 
-	const oldXMLFilename = document.querySelector("#old_XML").value.split(/(\\|\/)/g).pop()
-	const newXMLFilename = document.querySelector("#new_XML").value.split(/(\\|\/)/g).pop()
+	const oldXMLFilename = document
+		.querySelector("#old_XML")
+		.value.split(/(\\|\/)/g)
+		.pop()
+	const newXMLFilename = document
+		.querySelector("#new_XML")
+		.value.split(/(\\|\/)/g)
+		.pop()
 
 	const response = await fetch("/upload_xmls/", {
 		method: "POST",
@@ -162,11 +172,10 @@ send.addEventListener("click", async () => {
 		.then((response) => response.json())
 		.then((data) => {
 			// console.log(data)
-			update_xmls(data.oldXML, data.newXML, data.resXML);
-			$("#XMLSelectorModal").hide();
+			update_xmls(data.oldXML, data.newXML, data.resXML)
+			$("#XMLSelectorModal").hide()
 
-			$(".oldXMLFileName").text("Old - " + oldXMLFilename);
-			$(".newXMLFileName").text("New - " + newXMLFilename);
-			
+			$(".oldXMLFileName").text("Old - " + oldXMLFilename)
+			$(".newXMLFileName").text("New - " + newXMLFilename)
 		})
 })

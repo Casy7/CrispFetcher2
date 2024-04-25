@@ -251,7 +251,7 @@ function copy_result() {
   let res_str = "";
   res.childNodes.forEach((element) => {
     if (element.innerText != undefined && element.className.search("redLine") == -1 && element.className.search("grayLine") == -1){
-      res_str +=getInnerText(element)+"\n";
+      res_str +=getInnerText(element).replace(/\n/g, '') + "\n";
     }
 
   });
@@ -451,11 +451,15 @@ async function saveXMLs() {
   // formData.append("userOpenedEditorID", userOpenedEditorID);
   // formData.append("mainEditorState", mainEditor.innerHTML);
 
-  const oldXMLFilename = document.querySelector("#old_XML").value;
-	const newXMLFilename = document.querySelector("#new_XML").value;
-
-  // formData.append("oldXMLFilename", oldXMLFilename);
-  // formData.append("newXMLFilename", newXMLFilename);
+  if (oldXMLFilename == ""){
+    oldXMLFilename = document.querySelector("#old_XML").value.split(/(\\|\/)/g).pop();
+  }
+  if (newXMLFilename == ""){
+	newXMLFilename = document.querySelector("#new_XML").value.split(/(\\|\/)/g).pop();
+  }
+  if (userOpenedEditorID == -1) {
+    userOpenedEditorID = Math.max(userOpenedEditorID, editorID);
+   }
 
   $.ajax({
     url: "/save_xmls/",
